@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "9f0atbSzQV+zya+f2Aj5p1PA2Ab4ExeJ2pk0AGk9hSnngH0kwdCFfTMH+oVeH/86T0ZUXkCZHbEtefonlK6fvQ==",
+  "dgSpecHash": "bLqz1gDTqlUZKmCnmcvxYbKOm7vfR0W/W5+3Z5vI3j3fI1UYycFTE+uT147ZIqQEusafzpYRcWnnuQd+Grc6ug==",
   "success": true,
   "projectFilePath": "/home/karian_mash/Desktop/DotNet/Todo/Todo.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/karian_mash/.nuget/packages/microsoft.data.sqlite/7.0.1/microsoft.data.sqlite.7.0.1.nupkg.sha512",
+    "/home/karian_mash/.nuget/packages/microsoft.data.sqlite.core/7.0.1/microsoft.data.sqlite.core.7.0.1.nupkg.sha512",
+    "/home/karian_mash/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.2/sqlitepclraw.bundle_e_sqlite3.2.1.2.nupkg.sha512",
+    "/home/karian_mash/.nuget/packages/sqlitepclraw.core/2.1.2/sqlitepclraw.core.2.1.2.nupkg.sha512",
+    "/home/karian_mash/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.2/sqlitepclraw.lib.e_sqlite3.2.1.2.nupkg.sha512",
+    "/home/karian_mash/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.2/sqlitepclraw.provider.e_sqlite3.2.1.2.nupkg.sha512",
+    "/home/karian_mash/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512"
+  ],
   "logs": []
 }
