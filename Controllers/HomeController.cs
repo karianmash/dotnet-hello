@@ -21,6 +21,12 @@ public class HomeController : Controller
         return View(todoListViewModel);
     }
 
+    public JsonResult PopulateForm(int id)
+    {
+        var todo = GetById(id);
+        return Json(todo);
+    }
+
     internal TodoViewModel GetAllTodos()
     {
         List<TodoModel> todoList = new();
@@ -62,6 +68,35 @@ public class HomeController : Controller
         }
     }
 
+    internal TodoModel GetById(int id)
+    {
+        TodoModel todo = new();
+
+        using (var con = new SqliteConnection("Data Source=db.sqlite"))
+        {
+            using (var tableCmd = con.CreateCommand())
+            {
+                con.Open();
+                tableCmd.CommandText = $"SELECT * FROM todo WHERE Id = '{id}'";
+
+                using (var reader = tableCmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        todo.Id = reader.GetInt32(0);
+                        todo.Name = reader.GetString(1);
+                    }
+                    else
+                    {
+                        return todo;
+                    }
+                };
+            }
+        }
+        return todo;
+    }
+
     public RedirectResult Insert(TodoModel todo)
     {
         using (SqliteConnection con = new SqliteConnection("Data Source=db.sqlite"))
@@ -83,6 +118,29 @@ public class HomeController : Controller
         }
         return Redirect("http://localhost:5075/");
     }
+
+    public RedirectResult Update(TodoModel todo)
+    {
+        using (SqliteConnection con = new SqliteConnection("Data Source=db.sqlite"))
+        {
+            using (var tableCmd = con.CreateCommand())
+            {
+                con.Open();
+                tableCmd.CommandText = $"UPDATE todo SET name = '{todo.Name}' WHERE Id = '{todo.Id}'";
+
+                try
+                {
+                    tableCmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+        return Redirect("http://localhost:5075/");
+    }
+
     public JsonResult Delete(int id)
     {
         using (SqliteConnection con = new SqliteConnection("Data Source=db.sqlite"))
