@@ -1,6 +1,5 @@
 ﻿function deleteTodo(i) {
-  $.ajax;
-  ({
+  $.ajax({
     url: "Home/Delete",
     type: "POST",
     data: {

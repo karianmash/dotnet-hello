@@ -90,7 +90,7 @@ public class HomeController : Controller
             using (var tableCmd = con.CreateCommand())
             {
                 con.Open();
-                tableCmd.CommandText = $"DELETE FROM todo WHERE id = {id}";
+                tableCmd.CommandText = $"DELETE FROM todo WHERE Id = '{id}'";
                 tableCmd.ExecuteNonQuery();
             }
         }
