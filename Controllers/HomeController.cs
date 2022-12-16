@@ -83,4 +83,17 @@ public class HomeController : Controller
         }
         return Redirect("http://localhost:5075/");
     }
+    public JsonResult Delete(int id)
+    {
+        using (SqliteConnection con = new SqliteConnection("Data Source=db.sqlite"))
+        {
+            using (var tableCmd = con.CreateCommand())
+            {
+                con.Open();
+                tableCmd.CommandText = $"DELETE FROM todo WHERE id = {id}";
+                tableCmd.ExecuteNonQuery();
+            }
+        }
+        return Json(new { });
+    }
 }
